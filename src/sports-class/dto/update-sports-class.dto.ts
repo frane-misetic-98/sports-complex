@@ -1,4 +1,16 @@
-import { PartialType } from '@nestjs/mapped-types';
-import { CreateSportsClassDto } from './create-sports-class.dto';
+import { IsEnum, IsOptional } from 'class-validator';
+import { Sport } from '../../enums';
+import { ApiProperty } from '@nestjs/swagger';
 
-export class UpdateSportsClassDto extends PartialType(CreateSportsClassDto) {}
+export class UpdateSportsClassDto {
+  @ApiProperty()
+  name?: string;
+
+  @ApiProperty()
+  description?: string;
+
+  @ApiProperty()
+  @IsOptional()
+  @IsEnum(Sport)
+  sport?: Sport;
+}

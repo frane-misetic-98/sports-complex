@@ -10,7 +10,7 @@ import {
 import { User } from '../../user/entities/user.entity';
 import { Sport } from '../../enums';
 import { ClassApplication } from '../../class-application/entities/class-application.entity';
-import { ClassSchedule } from '../../class-schedule/entities/class-schedule.entity';
+import { ClassSchedule } from './class-schedule.entity';
 
 @Entity('sports_classes')
 @Unique(['name', 'sport'])
@@ -40,7 +40,7 @@ export class SportsClass extends AppBaseEntity {
   @OneToMany(
     () => ClassSchedule,
     (classSchedule) => classSchedule.sportsClass,
-    { onDelete: 'CASCADE' },
+    { cascade: true, onDelete: 'CASCADE' },
   )
   schedule: ClassSchedule[];
 }
