@@ -1,14 +1,18 @@
 import { Module } from '@nestjs/common';
 import { ClassApplicationService } from './class-application.service';
 import { ClassApplicationController } from './class-application.controller';
-import { TokenModule } from '../token/token.module';
-import { UserService } from '../user/user.service';
+import { AuthenticationModule } from '../authentication/authentication.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { User } from '../user/entities/user.entity';
+import { ClassApplication } from './entities/class-application.entity';
+import { SportsClassModule } from '../sports-class/sports-class.module';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([User]), TokenModule],
+  imports: [
+    TypeOrmModule.forFeature([ClassApplication]),
+    AuthenticationModule,
+    SportsClassModule,
+  ],
   controllers: [ClassApplicationController],
-  providers: [ClassApplicationService, UserService],
+  providers: [ClassApplicationService],
 })
 export class ClassApplicationModule {}
