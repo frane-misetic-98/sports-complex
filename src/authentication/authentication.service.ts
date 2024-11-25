@@ -35,6 +35,7 @@ export class AuthenticationService {
     }
 
     return this.tokenService.getTokenResponse({
+      id: user.id,
       username: user.username,
       role: user.role,
     });
@@ -50,6 +51,7 @@ export class AuthenticationService {
     const user = await this.userService.create(registerRequest);
 
     return this.tokenService.getTokenResponse({
+      id: user.id,
       username: user.username,
       role: user.role,
     });
