@@ -1,7 +1,7 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { TokenResponseDto } from '../authentication/dto/response/token-response.dto';
 import { JwtService } from '@nestjs/jwt';
-import { JwtPayload } from './dto/jwt-payload';
+import { JwtPayload } from '../common/jwt-payload';
 
 @Injectable()
 export class TokenService {
