@@ -6,7 +6,7 @@ import {
 } from '@nestjs/common';
 import { Observable } from 'rxjs';
 import { Request } from 'express';
-import { JwtPayload } from '../../token/dto/jwt-payload';
+import { JwtPayload } from '../../common/jwt-payload';
 import { Reflector } from '@nestjs/core';
 import { ROLES_KEY } from './roles.decorator';
 import { UserRole } from '../../enums';
